@@ -1,4 +1,4 @@
 
 exports.index = function(req, res, next) {
-    res.render('index', { title: 'SExpress' });
+    res.render('index', { title: 'KExpress' });
 };

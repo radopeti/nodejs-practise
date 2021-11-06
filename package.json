@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node -e \"const cmd = process.env.NODE_ENV === 'production' ? 'node' : 'nodemon'; require('child_process').execSync(cmd + ' ./bin/www', { stdio: [0,1,2] });\""
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,5 +12,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
