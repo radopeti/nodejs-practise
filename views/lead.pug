@@ -4,3 +4,6 @@ block content
     a(href="/") Back
     h1 Lead
     p #{lead.email} email
+    |
+    form(action="/leads/" + lead.id + "/delete", method="POST")
+        button(type="submit") Delete
