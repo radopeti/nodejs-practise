@@ -13,3 +13,9 @@ exports.submit_lead = function(req, res, next) {
         res.redirect('/');
     })
 };
+
+exports.show_leads = function(req, res, next) {
+    return models.Lead.findAll().then(leads => {
+        res.render('index', { title: 'MadMEXpress', leads: leads })
+    })
+}
