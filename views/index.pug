@@ -11,5 +11,7 @@ block content
     for lead in leads
       p 
         span #{lead.email}
-        |
-        a(href="/leads/" + lead.id) Details
+        | 
+        a(href="/leads/" + lead.id)  Details  
+        span 
+        a(href="/leads/" + lead.id + "/edit")  Edit 

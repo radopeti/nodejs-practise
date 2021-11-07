@@ -1,0 +1,7 @@
+extends ../layout 
+
+block content
+    h1 Edit Lead
+    form(action="/leads/" + lead.id + "/edit", method="POST")
+        input(name="lead_email", type="email", placeholder="Email", value=lead.email)
+        button(type="submit") Update

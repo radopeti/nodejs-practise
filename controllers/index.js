@@ -10,7 +10,7 @@ exports.submit_lead = function(req, res, next) {
     models.Lead.create({
         email: req.body.lead_email
     }).then(result => {
-        res.redirect('/');
+        res.redirect('/leads');
     })
 };
 
@@ -28,4 +28,31 @@ exports.show_lead = function(req, res, next) {
     }).then(lead => {
         res.render('lead', { title: 'MadMEXpress', lead: lead })
     });
+}
+
+exports.show_edit_lead = function(req, res, next) {
+    return models.Lead.findOne({
+        where: {
+            id: req.params.lead_id
+        }
+    }).then(lead => {
+        res.render('lead/edit_lead', { lead: lead })
+    });
+}
+
+exports.edit_lead = function(req, res, next) {
+    req.params.lead_id
+    req.body.lead_email
+    models.Lead.update(
+        {
+            email: req.body.lead_email
+        },
+        {
+            where: {
+                id: req.params.lead_id
+            }
+        }
+    ).then(result => {
+        res.redirect('/leads/' + req.params.lead_id)
+    })
 }
