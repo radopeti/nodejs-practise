@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
         id: {
             allowNull: false,
             primaryKey: true,
-            type: Sequelize.UUID,
-            defaultValue: Sequelize.UUIDV4
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4
         },
         email: {
             type: DataTypes.STRING,
-            type: Sequelize.DATE
+            allowNull: false
         }
     });
     return Lead;
